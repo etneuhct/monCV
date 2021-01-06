@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ title }}</title>
+    <style>
+        #profile{
+            margin: 0 auto 40px auto;
+            width: 50%;
+        }
+        #profile > * {
+            margin: 0;
+        }
+        .row {
+            display: -webkit-box; /* wkhtmltopdf uses this one */
+            display: flex;
+        }
+        h2 {
+            border-bottom: 2px solid red;
+        }
+        h3 {
+            color: red;
+            margin: 0;
+        }
+        h4 {
+            margin: 0;
+        }
+        a {
+            text-decoration: none;
+            color: black;
+        }
+        .part {
+            margin-bottom: 20px;
+            border-bottom: 1px dotted grey;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="profile">
+        <h1>{{ profile.first_name }} {{ profile.last_name }}</h1>
+        <h3>{{ title }}</h3>
+        <p>{{ profile.location }}</p>
+        <p>{{ profile.mail }} | {{ profile.phone_number }}</p>
+        <div >
+            <a href="{{profile.github}}" style="margin-right: 20px"><img src="data:image/png;base64,{{github}}" alt="" style="width: 20px; height: 20px; margin-right: 10px">Github</a>
+            <a href="{{profile.linkedin}}"><img src="data:image/png;base64,{{linkedin}}" alt="" style="width: 20px; height: 20px; margin-right: 10px">LinkedIn</a>
+        </div>
+    </div>
+    <div class="row">
+        <div style="width: 70%">
+            {% if experiences %}
+            <div style="width: 100%">
+                <h2 style="width: 100%">Experiences</h2>
+                {% for experience in experiences %}
+                    <div style="width: 100%" class="part">
+                        <h3>{{ experience.job_title }}</h3>
+                        <h4>
+                            {{ experience.organization }} -
+                            {% if not experience.end_date %}
+                            Depuis {{ experience.start_date }}
+                            {% elif experience.start_date == experience.end_date %}
+                            {{ experience.start_date }}
+                            {% else %}
+                            {{ experience.start_date }} - {{ experience.end_date }}
+                            {% endif %}
+                            {% if experience.contract_type %}
+                            - {{ experience.contract_type }}
+                            {% endif %}
+                            {% if experience.city %}
+                            - {{ experience.city }}
+                            {% endif %}
+                            {% if experience.country %}
+                            - {{ experience.country }}
+                            {% endif %}
+                        </h4>
+                        <ul>
+                            {% for task in experience.tasks %}
+                            <li>{{ task }}</li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                {% endfor %}
+            </div>
+            {% endif %}
+            {% if projects %}
+            <div style="width: 100%; margin-top: 40px">
+                <h2>Projets</h2>
+                {% for project in projects %}
+                    <div style="width: 100%" class="part">
+                            <h3>{{ project.project_name }}</h3>
+                            <h4>
+                                {% if not project.end_date %}
+                                Depuis {{ project.start_date }}
+                                {% elif project.start_date == project.end_date %}
+                                {{ project.start_date }}
+                                {% else %}
+                                {{ project.start_date }} - {{ project.end_date }}
+                                {% endif %}
+                                {% if project.city %}
+                                - {{ project.city }}
+                                {% endif %}
+                                {% if project.country %}
+                                - {{ project.country }}
+                                {% endif %}
+                            </h4>
+                            <ul>
+                                {% for descriptions in project.descriptions %}
+                                <li>{{ descriptions }}</li>
+                                {% endfor %}
+                            </ul>
+                    </div>
+                {% endfor %}
+            </div>
+            {% endif %}
+            {% if publications %}
+            <div style="width: 100%; margin-top: 40px">
+                <h2>Publications</h2>
+                    <ul>
+                        {% for publication in publications %}
+                            <li>{{ publication }}</li>
+                        {% endfor %}
+                    </ul>
+            </div>
+            {% endif %}
+        </div>
+        <div style="width: 25%; margin-left: 5%">
+            <h2>Compétences</h2>
+            {% for skill in skills %}
+                <div class="part">
+                    <h3>{{ skill.category }}</h3>
+                    <ul>
+                        {% for label in skill.labels %}
+                            <li>{{ label }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+</html>

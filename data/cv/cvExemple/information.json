@@ -1,0 +1,86 @@
+{
+  "title": "Intitulé du poste",
+  "profile": {
+    "first_name": "FirstName",
+    "last_name": "Lastname",
+    "mail": "mail@gmail.com",
+    "phone_number": 123456789,
+    "linkedin": "https://linkedin.com/in/username",
+    "github": "https://github.com/username"
+  },
+  "experiences": [
+    {
+      "job_title": "Intitulé du poste",
+      "organization": "Lorem",
+      "start_date": "Janvier 2021",
+      "end_date": null,
+      "country": "Canada",
+      "city": "Québec",
+      "contract_type": "CDD",
+      "tasks": [
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit"
+      ]
+    },
+    {
+      "job_title": "Intitulé du poste 2",
+      "organization": "Lorem",
+      "start_date": "Janvier 2021",
+      "end_date": null,
+      "country": "Canada",
+      "city": "Québec",
+      "contract_type": "CDD",
+      "tasks": [
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit"
+      ]
+    }
+  ],
+  "projects": [
+    {
+      "project_name": "Projet 1",
+      "country": "Canada",
+      "city": "Québec",
+      "start_date": "Octobre 2020",
+      "end_date": "Octobre 2020",
+      "descriptions": [
+        "In hac habitasse platea dictumst. Pellentesque vestibulum, ante at varius laoreet, nulla tortor facilisis dolor",
+        "In hac habitasse platea dictumst. Pellentesque vestibulum, ante at varius laoreet, nulla tortor facilisis dolor"
+      ]
+    },
+    {
+      "project_name": "Projet 2",
+      "country": "Canada",
+      "city": "Québec",
+      "start_date": "Octobre 2020",
+      "end_date": "Octobre 2020",
+      "descriptions": [
+        "In hac habitasse platea dictumst. Pellentesque vestibulum, ante at varius laoreet, nulla tortor facilisis dolor"
+      ]
+    }
+  ],
+  "skills": [
+    {
+      "category": "Category 1",
+      "labels": [
+        "Label 1", "Label 2"
+      ]
+    },
+    {
+      "category": "Category 2",
+      "labels": [
+        "Label 1", "Label 2"
+      ]
+    },
+    {
+      "category": "Category 3",
+      "labels": [
+        "Label 1", "Label 2", "Label 3"
+      ]
+    }
+  ],
+  "publications": [
+    "Aenean lacus mi, gravida sit amet massa ut, vestibulum tempus leo. Fusce convallis, felis eget consectetur tempor, ipsum mi fermentum orci, a sagittis nisl est sed neque.",
+    "Vestibulum vulputate, purus sodales placerat fermentum, odio libero tristique ex, at tincidunt urna nunc ac felis. Mauris venenatis tempus dolor quis eleifend. Aliquam eget hendrerit ante, non pretium odio."
+  ]
+}
